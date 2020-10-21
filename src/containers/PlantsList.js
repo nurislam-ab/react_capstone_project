@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 const PlantsList = ({ plants }) => {
   console.log('reach plant list');
@@ -24,5 +25,15 @@ const PlantsList = ({ plants }) => {
 const mapStateToProps = state => ({
   plants: state.plants,
 });
+
+PlantsList.propTypes = {
+  plants: PropTypes.arrayOf(
+    PropTypes.shape({
+      plantId: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      content: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
+};
 
 export default connect(mapStateToProps, null)(PlantsList);
