@@ -20,4 +20,8 @@ const PlantsList = ({ plants }) => {
   );
 };
 
+const mapStateToProps = state => ({
+  plants: state.plants,
+});
+
 export default PlantsList;
