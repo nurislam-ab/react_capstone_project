@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 const PlantsList = ({ plants }) => {
   console.log('reach plant list');
@@ -24,4 +25,4 @@ const mapStateToProps = state => ({
   plants: state.plants,
 });
 
-export default PlantsList;
+export default connect(mapStateToProps, null)(PlantsList);
