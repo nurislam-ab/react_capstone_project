@@ -1,14 +1,19 @@
 import React from 'react';
 import '../assets/scss/App.scss';
+import PlantsList from '../containers/PlantsList';
+import Header from './Header';
 
-function App() {
+const App = () => {
+  console.log('reach the app');
+
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Hello world</h1>
-      </header>
+      <Header />
+      <main>
+        <PlantsList />
+      </main>
     </div>
   );
-}
+};
 
 export default App;
