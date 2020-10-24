@@ -25,3 +25,20 @@ code {
     'Courier New',
     monospace;
 }
+
+img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+}
+
+.plants-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.plant-excerpt {
+  margin: 15px 10px;
+  width: 20%;
+}
