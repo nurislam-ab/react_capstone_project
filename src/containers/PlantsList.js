@@ -1,15 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { fetchPlantBySlug, selectPlant } from '../actions/index';
+import PlantPreviewCard from '../components/PlantPreviewCard';
 
-const PlantsList = ({ plants }) => {
-  console.log('reach plant list');
+const PlantsList = ({ plants, selectPlant, fetchPlantBySlug }) => {
+
+  const handleFetchPlant = plant => {
+    selectPlant(plant.slug);
+    fetchPlantBySlug(plant.slug);
+  };
 
   const renderPlants = plants.map(plant => (
-    <div className="plant-excerpt" key={plant.id}>
-      <h3>{plant.title}</h3>
-      <p>{plant.content.substring(0, 100)}</p>
-    </div>
+    <PlantPreviewCard
+      plant={plant}
+      key={plant.id}
+      clickHandler={() => handleFetchPlant(plant)}
+    />
   ));
 
   return (
@@ -22,18 +29,19 @@ const PlantsList = ({ plants }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  plants: state.plants,
+const mapDispatchToProps = dispatch => ({
+  selectPlant: slug => dispatch(selectPlant(slug)),
+  fetchPlantBySlug: slug => dispatch(fetchPlantBySlug(slug)),
 });
 
 PlantsList.propTypes = {
-  plants: PropTypes.arrayOf(
-    PropTypes.shape({
-      plantId: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      content: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
+  plants: PropTypes.arrayOf(PropTypes.object),
+  selectPlant: PropTypes.func.isRequired,
+  fetchPlantBySlug: PropTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps, null)(PlantsList);
+PlantsList.defaultProps = {
+  plants: [],
+};
+
+export default connect(null, mapDispatchToProps)(PlantsList);
