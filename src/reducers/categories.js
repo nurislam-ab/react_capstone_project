@@ -7,7 +7,6 @@ const initialState = {
 const categoryReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_CATEGORY:
-      console.log('category reducer action payload:', action.payload);
       return {
         ...state,
         loading: false,
