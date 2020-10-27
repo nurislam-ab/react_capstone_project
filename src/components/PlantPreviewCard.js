@@ -38,4 +38,14 @@ const PlantPreviewCard = ({ plant, clickHandler }) => {
   );
 };
 
+PlantPreviewCard.propTypes = {
+  plant: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    family: PropTypes.string.isRequired,
+    image_url: PropTypes.string.isRequired,
+    slug: PropTypes.string.isRequired,
+  }).isRequired,
+  clickHandler: PropTypes.func.isRequired,
+};
+
 export default PlantPreviewCard;
