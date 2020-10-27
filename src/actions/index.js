@@ -5,9 +5,14 @@ import {
   FETCH_FAIL,
   CHANGE_FILTER,
   FETCH_CATEGORY,
+  FETCH_PLANT,
+  FETCH_INIT_PLANT,
+  SELECT_PLANT,
+  FETCH_PLANT_ERROR,
+  FETCH_SUCCESS,
 } from './actionTypes';
 
-import { FILTERED_PLANTS_BY_FAMILY } from '../api/client';
+import { TOKEN } from '../api/client';
 
 const fetchInit = () => ({
   type: FETCH_INIT,
@@ -31,16 +36,42 @@ const fetchCategories = content => ({
   },
 });
 
-const fetchPlantsByCategories = category => dispatch => {
-  const url = FILTERED_PLANTS_BY_FAMILY`${category}`;
+const fetchPlant = content => ({
+  type: FETCH_PLANT,
+  payload: {
+    plant: content,
+  },
+});
 
-  dispatch(fetchInit());
+const fetchSuccess = data => ({
+  type: FETCH_SUCCESS,
+  payload: data,
+});
+
+const selectPlant = slug => ({
+  type: SELECT_PLANT,
+  slug,
+});
+
+const fetchInitPlant = () => ({
+  type: FETCH_INIT_PLANT,
+});
+
+const fetchPlantError = error => ({
+  type: FETCH_PLANT_ERROR,
+  payload: error,
+});
+
+const fetchPlantBySlug = slug => dispatch => {
+  const BASE_URL = 'https://trefle.io//api/v1/plants/';
+  const url = `${BASE_URL}${slug}?token=${TOKEN}`;
+  dispatch(fetchInitPlant());
   axios.get(url)
-    .then(responce => {
-      dispatch(fetchPlants(responce.data.plants));
+    .then(response => {
+      dispatch(fetchSuccess(response.data));
     })
-    .catch(e => {
-      dispatch(fetchFail(e.message));
+    .catch(error => {
+      dispatch(fetchPlantError(error.message));
     });
 };
 
@@ -57,5 +88,7 @@ export {
   fetchFail,
   fetchCategories,
   changeFilter,
-  fetchPlantsByCategories,
+  fetchPlant,
+  fetchPlantBySlug,
+  selectPlant,
 };
