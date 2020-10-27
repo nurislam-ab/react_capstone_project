@@ -1,18 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Plant = ({ plantId, title, content }) => (
-  <div className="plant-preivew">
-    <span>{plantId}</span>
-    <h2>{title}</h2>
-    <p>{content}</p>
+const Plant = ({ plant }) => (
+  <div className="plant-details">
+    <p>{plant.family_common_name}</p>
   </div>
 );
 
 Plant.propTypes = {
-  plantId: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
+  plant: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default Plant;
