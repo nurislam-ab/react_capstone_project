@@ -41,4 +41,15 @@ const CategoryFilter = ({ filter, onFilter, categories }) => {
   );
 };
 
+CategoryFilter.propTypes = {
+  categories: PropTypes.arrayOf(PropTypes.object),
+  filter: PropTypes.string,
+  onFilter: PropTypes.func.isRequired,
+};
+
+CategoryFilter.defaultProps = {
+  categories: [],
+  filter: 'All',
+};
+
 export default CategoryFilter;
