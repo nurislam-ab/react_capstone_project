@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -16,7 +17,6 @@ const PlantPreviewCard = ({ plant, clickHandler }) => {
   const handleClick = plant => {
     clickHandler(plant);
   };
-  console.log('plant from preview card', plant);
 
   const plantName = common_name === null || common_name === '' ? scientific_name : common_name;
 
@@ -50,6 +50,8 @@ PlantPreviewCard.propTypes = {
   plant: PropTypes.shape({
     id: PropTypes.number.isRequired,
     family: PropTypes.string.isRequired,
+    common_name: PropTypes.string.isRequired,
+    scientific_name: PropTypes.string.isRequired,
     image_url: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
   }).isRequired,
