@@ -19,12 +19,9 @@ const PlantsList = ({ plants, selectPlant, fetchPlantBySlug }) => {
   ));
 
   return (
-    <section>
-      <h2>Plants</h2>
-      <div className="plants-list">
-        {renderPlants}
-      </div>
-    </section>
+    <div className="plants-list">
+      {renderPlants}
+    </div>
   );
 };
 
