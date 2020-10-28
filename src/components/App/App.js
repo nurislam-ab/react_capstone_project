@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
-import './styles.scss';
+import './App.scss';
 import Home from '../Home/Home';
 import Plant from '../Plant/Plant';
 
