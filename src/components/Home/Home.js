@@ -51,7 +51,7 @@ const Home = ({
       <CategoryFilter categories={categories} onFilter={handleFilterChange} />
       {error && <p>Something went wrong</p>}
       {loading ? (
-        <>Data is loading</>
+        <p>Data is loading</p>
       ) : (
         <>
           <PlantsList plants={plants} />
