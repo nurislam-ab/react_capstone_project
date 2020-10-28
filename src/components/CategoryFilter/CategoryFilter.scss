@@ -1,0 +1,28 @@
+@import '../../assets/scss/colors';
+
+.filters-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin: 25px;
+}
+
+select.categories-list {
+  font-family: "Montserrat-Regular", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.15px;
+  color: #c4c4c4;
+  border: 1px solid #e8e8e8;
+  background-color: #fff;
+  height: 45px;
+  border-radius: 4px;
+  padding: 0 10px;
+
+  &:focus {
+    outline-color: $green;
+  }
+}

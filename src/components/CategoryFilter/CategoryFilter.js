@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './CategoryFilter.scss';
 
 const CategoryFilter = ({ filter, onFilter, categories }) => {
   const handleFilter = ({ target }) => {
@@ -31,13 +32,12 @@ const CategoryFilter = ({ filter, onFilter, categories }) => {
   });
 
   return (
-    <section>
-      <h2>Categories</h2>
+    <div className="filters-wrapper">
       <select className="categories-list" onChange={handleFilter}>
         <option name="All" key="All">All</option>
         {renderCategoriesList}
       </select>
-    </section>
+    </div>
   );
 };
 
