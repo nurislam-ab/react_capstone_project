@@ -5,7 +5,6 @@ import { fetchPlantBySlug, selectPlant } from '../actions/index';
 import PlantPreviewCard from '../components/PlantPreviewCard/PlantPreviewCard';
 
 const PlantsList = ({ plants, selectPlant, fetchPlantBySlug }) => {
-
   const handleFetchPlant = plant => {
     selectPlant(plant.slug);
     fetchPlantBySlug(plant.slug);

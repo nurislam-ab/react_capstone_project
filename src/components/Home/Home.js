@@ -47,17 +47,17 @@ const Home = ({
   }, []);
 
   return (
-    <div>
+    <>
       <CategoryFilter categories={categories} onFilter={handleFilterChange} />
       {error && <p>Something went wrong</p>}
       {loading ? (
-        <div>Data is loading</div>
+        <>Data is loading</>
       ) : (
-        <div>
+        <>
           <PlantsList plants={plants} />
-        </div>
+        </>
       )}
-    </div>
+    </>
   );
 };
 
