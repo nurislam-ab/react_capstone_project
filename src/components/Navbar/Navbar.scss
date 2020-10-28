@@ -1,0 +1,27 @@
+@import '../../assets/scss/colors';
+
+.main-menu {
+  display: flex;
+
+  .link {
+    font-family: "Montserrat-Regular", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1.9px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding-top: 30px;
+    margin: 0 15px;
+    transition: 0.5s;
+    border-top: 5px solid transparent;
+    color: $black;
+
+    &:hover {
+      border-color: $green;
+      color: $green;
+    }
+  }
+}
