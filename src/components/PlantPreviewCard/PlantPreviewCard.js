@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import './PlantPreviewCard.scss';
 
 const PlantPreviewCard = ({ plant, clickHandler }) => {
   const {
@@ -21,19 +22,26 @@ const PlantPreviewCard = ({ plant, clickHandler }) => {
 
   return (
     <div className="plant-excerpt" key={id}>
-      <h3>
-        <Link
-          to={{
-            pathname: `/plants/${slug}`,
-            state: { plant },
-          }}
-          onClick={() => handleClick(plant)}
-        >
-          {plantName}
-        </Link>
-      </h3>
-      <p>{family}</p>
-      <img src={image_url} alt={plantName} />
+      <div className="family-wrapper">
+        <span className="family">{family}</span>
+      </div>
+      <div className="image-wrapper">
+        <img src={image_url} alt={plantName} className="image" />
+      </div>
+      <div className="info">
+        <h3 className="title">
+          <Link
+            to={{
+              pathname: `/plants/${slug}`,
+              state: { plant },
+            }}
+            onClick={() => handleClick(plant)}
+            className="link"
+          >
+            {plantName}
+          </Link>
+        </h3>
+      </div>
     </div>
   );
 };
