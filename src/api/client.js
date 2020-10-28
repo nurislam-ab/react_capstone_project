@@ -11,7 +11,10 @@ const getPlants = async (filter = '') => {
   const url = filter === 'All' || filter === '' || filter === null ? ALL_PLANTS : FILTERED_PLANTS_BY_FAMILY + filter;
 
   try {
-    const { data: { data } } = await axios.get(url);
+    const { data: { data } } = await axios.get(url, {
+      mode: 'cors',
+      credentials: 'include',
+    });
 
     const plants = [];
 
@@ -29,7 +32,10 @@ const getAllFamilies = async () => {
   const families = [];
   for (let i = 1; i < 35; i += 1) {
     const url = FAMILIES_BY_PAGE + i;
-    const { data: { data } } = await axios.get(url);
+    const { data: { data } } = await axios.get(url, {
+      mode: 'cors',
+      credentials: 'include',
+    });
 
     Promise.all(data.map(async family => {
       families.push(family);
