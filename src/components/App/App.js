@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
-import '../assets/scss/App.scss';
-import Header from './Header';
-import Home from './Home';
-import Plant from './Plant';
+import './styles.scss';
+import Header from '../Header/Header';
+import Home from '../Home/Home';
+import Plant from '../Plant/Plant';
 
 const App = () => {
   const plant = useSelector(store => store.plantItemReducer.plant.data);

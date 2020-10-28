@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect, useSelector } from 'react-redux';
-import { getPlants, getAllFamilies } from '../api/client';
-import PlantsList from '../containers/PlantsList';
-import CategoryFilter from './CategoryFilter';
-import { getPlantFamiliesList, getPlantsList } from '../selectors/index';
+import { getPlants, getAllFamilies } from '../../api/client';
+import PlantsList from '../../containers/PlantsList';
+import CategoryFilter from '../CategoryFilter/CategoryFilter';
+import { getPlantFamiliesList, getPlantsList } from '../../selectors/index';
 import {
   fetchInit,
   fetchPlants,
   fetchFail,
   fetchCategories,
-} from '../actions/index';
+} from '../../actions/index';
 
 const Home = ({
   plants,

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchPlantBySlug, selectPlant } from '../actions/index';
-import PlantPreviewCard from '../components/PlantPreviewCard';
+import PlantPreviewCard from '../components/PlantPreviewCard/PlantPreviewCard';
 
 const PlantsList = ({ plants, selectPlant, fetchPlantBySlug }) => {
 
