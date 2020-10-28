@@ -3,9 +3,9 @@ The project is built using React and Redux and based on a catalogue of plants. T
 
 
 ## Screeenshot
-![Plants Homepage](screenshots/Plants Homepage.jpg)
+[Plants Homepage](screenshots/PlantsHomepage.jpg)
 
-![Plants Details page](screenshots/Plants Details page.jpg)
+[Plants Details page](screenshots/PlantsDetailspage.jpg)
 
 
 ## Built With
