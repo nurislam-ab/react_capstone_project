@@ -2,6 +2,7 @@ main {
   margin: 25px 0;
   flex-direction: column;
   display: flex;
+  overflow: hidden;
 
   p {
     text-align: center;
