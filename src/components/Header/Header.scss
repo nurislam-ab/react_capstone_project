@@ -1,0 +1,24 @@
+@import '../../assets/scss/colors';
+
+header {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 10px;
+  margin-bottom: 25px;
+  align-items: baseline;
+}
+
+.logo {
+  font-family: "Montserrat-Bold", sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+
+  a {
+    text-decoration: none;
+    color: $green;
+  }
+}
