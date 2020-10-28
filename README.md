@@ -1,9 +1,11 @@
 # React Capstone Project
-
+The project is built using React and Redux and based on a catalogue of plants. This catalogue is a browsable list of plants that can filtered and access to the details of one plant item. A sample design was developed in this capstone project.
 
 
 ## Screeenshot
-![]()
+![Plants Homepage](screenshots/Plants Homepage.jpg)
+
+![Plants Details page](screenshots/Plants Details page.jpg)
 
 
 ## Built With
@@ -16,7 +18,7 @@
 
 ## Live Demo
 
-[Live demo]()
+[Live demo](https://peaceful-brook-65870.herokuapp.com/)
 
 
 ## Getting Started
