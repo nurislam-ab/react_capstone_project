@@ -6,7 +6,7 @@ import Home from '../Home/Home';
 import Plant from '../Plant/Plant';
 
 const App = () => {
-  const plant = useSelector(store => store.plantItemReducer.plant.data);
+  const plant = useSelector(store => store.plantItemReducer.plant[0]);
   return (
     <>
       <main>
@@ -14,7 +14,7 @@ const App = () => {
           <Route exact path="/" component={Home} />
           {
             plant ? (
-              <Route exact path={`/plants/${plant.slug}`}>
+              <Route exact path={`/plants/${plant.idMeal}`}>
                 <Plant plant={plant} />
               </Route>
             ) : null
