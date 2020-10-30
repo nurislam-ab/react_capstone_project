@@ -11,11 +11,11 @@ const CategoryFilter = ({ onFilter, categories }) => {
     if (category.common_name !== null) {
       return (
         <option
-          key={category.id}
-          id={category.common_name}
-          name={category.common_name}
+          key={category.idCategory}
+          id={category.idCategory}
+          name={category.strCategory}
         >
-          {category.common_name}
+          {category.strCategory}
         </option>
       );
     }
