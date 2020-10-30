@@ -50,8 +50,8 @@ PlantPreviewCard.propTypes = {
   plant: PropTypes.shape({
     id: PropTypes.number.isRequired,
     family: PropTypes.string.isRequired,
-    common_name: PropTypes.string.isRequired,
-    scientific_name: PropTypes.string.isRequired,
+    common_name: PropTypes.string,
+    scientific_name: PropTypes.string,
     image_url: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
   }).isRequired,
