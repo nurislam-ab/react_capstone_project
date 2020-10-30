@@ -12,8 +12,6 @@ import {
   FETCH_SUCCESS,
 } from './actionTypes';
 
-import { TOKEN } from '../api/client';
-
 const fetchInit = () => ({
   type: FETCH_INIT,
 });
@@ -63,12 +61,12 @@ const fetchPlantError = error => ({
 });
 
 const fetchPlantBySlug = slug => dispatch => {
-  const BASE_URL = 'https://trefle.io//api/v1/plants/';
-  const url = `${BASE_URL}${slug}?token=${TOKEN}`;
+  const BASE_URL = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=';
+  const url = `${BASE_URL}${slug}`;
   dispatch(fetchInitPlant());
   axios.get(url)
     .then(response => {
-      dispatch(fetchSuccess(response.data));
+      dispatch(fetchSuccess(response.data.meals));
     })
     .catch(error => {
       dispatch(fetchPlantError(error.message));
