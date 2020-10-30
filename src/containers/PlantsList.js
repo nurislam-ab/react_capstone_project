@@ -6,14 +6,14 @@ import PlantPreviewCard from '../components/PlantPreviewCard/PlantPreviewCard';
 
 const PlantsList = ({ plants, selectPlant, fetchPlantBySlug }) => {
   const handleFetchPlant = plant => {
-    selectPlant(plant.slug);
-    fetchPlantBySlug(plant.slug);
+    selectPlant(plant.idMeal);
+    fetchPlantBySlug(plant.idMeal);
   };
 
   const renderPlants = plants.map(plant => (
     <PlantPreviewCard
       plant={plant}
-      key={plant.id}
+      key={plant.idMeal}
       clickHandler={() => handleFetchPlant(plant)}
     />
   ));
@@ -26,8 +26,8 @@ const PlantsList = ({ plants, selectPlant, fetchPlantBySlug }) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  selectPlant: slug => dispatch(selectPlant(slug)),
-  fetchPlantBySlug: slug => dispatch(fetchPlantBySlug(slug)),
+  selectPlant: idMeal => dispatch(selectPlant(idMeal)),
+  fetchPlantBySlug: idMeal => dispatch(fetchPlantBySlug(idMeal)),
 });
 
 PlantsList.propTypes = {
