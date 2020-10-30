@@ -1,13 +1,13 @@
-const getPlantsState = store => store.plants.plants;
+const getMealsState = store => store.meals.meals;
 
-const getPlantFamilies = store => store.categories.categories;
+const getMealFamilies = store => store.categories.categories;
 
-const getPlantsList = store => getPlantsState(store);
+const getMealsList = store => getMealsState(store);
 
-const getPlantFamiliesList = store => getPlantFamilies(store);
+const getMealFamiliesList = store => getMealFamilies(store);
 
 export {
-  getPlantsList,
-  getPlantsState,
-  getPlantFamiliesList,
+  getMealsList,
+  getMealsState,
+  getMealFamiliesList,
 };

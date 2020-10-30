@@ -1,36 +1,36 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect, useSelector } from 'react-redux';
-import { getPlants, getAllFamilies } from '../../api/client';
-import PlantsList from '../../containers/PlantsList';
+import { getMeals, getAllFamilies } from '../../api/client';
+import MealsList from '../../containers/MealsList';
 import CategoryFilter from '../CategoryFilter/CategoryFilter';
-import { getPlantFamiliesList, getPlantsList } from '../../selectors/index';
+import { getMealFamiliesList, getMealsList } from '../../selectors/index';
 import {
   fetchInit,
-  fetchPlants,
+  fetchMeals,
   fetchFail,
   fetchCategories,
 } from '../../actions/index';
 
 const Home = ({
-  plants,
+  meals,
   categories,
   loading,
   error,
   fetchInit,
-  fetchPlants,
+  fetchMeals,
   fetchFail,
   fetchCategories,
 }) => {
   const filter = useSelector(store => store.filterReducer);
 
-  const handleFetchPlants = async () => {
+  const handleFetchMeals = async () => {
     fetchInit();
 
     try {
-      const result = await getPlants(filter);
+      const result = await getMeals(filter);
       const categories = await getAllFamilies();
-      fetchPlants(result);
+      fetchMeals(result);
       fetchCategories(categories);
     } catch (e) {
       fetchFail();
@@ -38,12 +38,12 @@ const Home = ({
   };
 
   const handleFilterChange = async category => {
-    const filteredPlants = await getPlants(category);
-    fetchPlants(filteredPlants);
+    const filteredMeals = await getMeals(category);
+    fetchMeals(filteredMeals);
   };
 
   useEffect(() => {
-    handleFetchPlants();
+    handleFetchMeals();
   }, []);
 
   return (
@@ -54,7 +54,7 @@ const Home = ({
         <p>Data is loading</p>
       ) : (
         <>
-          <PlantsList plants={plants} />
+          <MealsList meals={meals} />
         </>
       )}
     </>
@@ -62,11 +62,11 @@ const Home = ({
 };
 
 const mapStateToProps = state => {
-  const { plants: { loading, error } } = state;
-  const plants = getPlantsList(state);
-  const categories = getPlantFamiliesList(state);
+  const { meals: { loading, error } } = state;
+  const meals = getMealsList(state);
+  const categories = getMealFamiliesList(state);
   return {
-    plants,
+    meals,
     categories,
     loading,
     error,
@@ -75,24 +75,24 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   fetchInit: () => dispatch(fetchInit()),
-  fetchPlants: result => dispatch(fetchPlants(result)),
+  fetchMeals: result => dispatch(fetchMeals(result)),
   fetchFail: () => dispatch(fetchFail()),
   fetchCategories: categories => dispatch(fetchCategories(categories)),
 });
 
 Home.propTypes = {
-  plants: PropTypes.arrayOf(PropTypes.object),
+  meals: PropTypes.arrayOf(PropTypes.object),
   categories: PropTypes.arrayOf(PropTypes.object),
   loading: PropTypes.bool,
   error: PropTypes.bool,
   fetchInit: PropTypes.func.isRequired,
-  fetchPlants: PropTypes.func.isRequired,
+  fetchMeals: PropTypes.func.isRequired,
   fetchFail: PropTypes.func.isRequired,
   fetchCategories: PropTypes.func.isRequired,
 };
 
 Home.defaultProps = {
-  plants: [],
+  meals: [],
   categories: [],
   loading: false,
   error: false,

@@ -1,26 +1,26 @@
-import { FETCH_INIT_PLANT, FETCH_SUCCESS, FETCH_PLANT_ERROR } from '../actions/actionTypes';
+import { FETCH_INIT_MEAL, FETCH_SUCCESS, FETCH_MEAL_ERROR } from '../actions/actionTypes';
 
 const initialState = {
-  plant: [],
+  meal: [],
   error: '',
 };
 
-const plantItemReducer = (state = initialState, action) => {
+const mealItemReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_INIT_PLANT:
+    case FETCH_INIT_MEAL:
       return {
         ...state,
       };
     case FETCH_SUCCESS:
       return {
         ...state,
-        plant: action.payload,
+        meal: action.payload,
         error: '',
       };
-    case FETCH_PLANT_ERROR:
+    case FETCH_MEAL_ERROR:
       return {
         ...state,
-        plant: [],
+        meal: [],
         error: action.payload,
       };
     default:
@@ -28,4 +28,4 @@ const plantItemReducer = (state = initialState, action) => {
   }
 };
 
-export default plantItemReducer;
+export default mealItemReducer;

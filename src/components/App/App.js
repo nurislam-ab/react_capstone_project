@@ -3,19 +3,19 @@ import { useSelector } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import './App.scss';
 import Home from '../Home/Home';
-import Plant from '../Plant/Plant';
+import Meal from '../Meal/Meal';
 
 const App = () => {
-  const plant = useSelector(store => store.plantItemReducer.plant[0]);
+  const meal = useSelector(store => store.mealItemReducer.meal[0]);
   return (
     <>
       <main>
         <Switch>
           <Route exact path="/" component={Home} />
           {
-            plant ? (
-              <Route exact path={`/plants/${plant.idMeal}`}>
-                <Plant plant={plant} />
+            meal ? (
+              <Route exact path={`/meals/${meal.idMeal}`}>
+                <Meal meal={meal} />
               </Route>
             ) : null
           }

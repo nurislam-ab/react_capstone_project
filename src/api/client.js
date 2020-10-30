@@ -1,22 +1,22 @@
 import axios from 'axios';
 
-const ALL_PLANTS = 'https://www.themealdb.com/api/json/v1/1/filter.php?a=Canadian';
+const ALL_MEALS = 'https://www.themealdb.com/api/json/v1/1/filter.php?a=Canadian';
 const ALL_FAMILIES = 'https://www.themealdb.com/api/json/v1/1/categories.php';
 const FAMILIES_BY_PAGE = `${ALL_FAMILIES}`;
-const FILTERED_PLANTS_BY_FAMILY = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=';
+const FILTERED_MEALS_BY_FAMILY = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=';
 
-const getPlants = async (filter = '') => {
-  const url = filter === 'All' || filter === '' || filter === null ? ALL_PLANTS : FILTERED_PLANTS_BY_FAMILY + filter;
+const getMeals = async (filter = '') => {
+  const url = filter === 'All' || filter === '' || filter === null ? ALL_MEALS : FILTERED_MEALS_BY_FAMILY + filter;
 
   try {
     const { data: { meals } } = await axios.get(url);
 
-    const plants = [];
+    const mealsList = [];
 
-    await Promise.all(meals.map(async plant => {
-      plants.push(plant);
+    await Promise.all(meals.map(async meal => {
+      mealsList.push(meal);
     }));
-    return plants;
+    return mealsList;
   } catch (e) {
     throw new Error(e);
   }
@@ -35,7 +35,7 @@ const getAllFamilies = async () => {
 };
 
 export {
-  getPlants,
+  getMeals,
   getAllFamilies,
-  FILTERED_PLANTS_BY_FAMILY,
+  FILTERED_MEALS_BY_FAMILY,
 };

@@ -1,11 +1,11 @@
 # React Capstone Project
-The project is built using React and Redux and based on a catalogue of plants. This catalogue is a browsable list of plants that can filtered and access to the details of one plant item. A sample design was developed in this capstone project.
+The project is built using React and Redux and based on a catalogue of meals. This catalogue is a browsable list of meals that can be filtered and access to the details of one meal item. A sample design was developed in this capstone project.
 
 
 ## Screeenshot
-[Plants Homepage](screenshots/PlantsHomepage.jpg)
+[Meals Homepage](screenshots/MealsHomepage.jpg)
 
-[Plants Details page](screenshots/PlantsDetailspage.jpg)
+[Meals Details page](screenshots/MealsDetailspage.jpg)
 
 
 ## Built With

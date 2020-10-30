@@ -1,6 +1,6 @@
 @import '../../assets/scss/colors';
 
-.plant-excerpt {
+.meal-excerpt {
   margin: 15px 10px;
   width: 100%;
   border-radius: 25px;
@@ -90,13 +90,13 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .plant-excerpt {
+  .meal-excerpt {
     width: 45%;
   }
 }
 
 @media only screen and (min-width: 1024px) {
-  .plant-excerpt {
+  .meal-excerpt {
     width: 20%;
   }
 }

@@ -1,16 +1,16 @@
 import { combineReducers } from 'redux';
 import categoryReducer from './categories';
-import plantReducer from './plants';
+import mealReducer from './meals';
 import filterReducer from './filter';
-import plantItemReducer from './plant';
-import plantSelectedReducer from './plantSelected';
+import mealItemReducer from './meal';
+import mealSelectedReducer from './mealSelected';
 
 const rootReducer = combineReducers({
-  plants: plantReducer,
+  meals: mealReducer,
   categories: categoryReducer,
   filterReducer,
-  plantItemReducer,
-  plantSelectedReducer,
+  mealItemReducer,
+  mealSelectedReducer,
 });
 
 export default rootReducer;

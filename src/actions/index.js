@@ -1,14 +1,14 @@
 import axios from 'axios';
 import {
   FETCH_INIT,
-  FETCH_PLANTS,
+  FETCH_MEALS,
   FETCH_FAIL,
   CHANGE_FILTER,
   FETCH_CATEGORY,
-  FETCH_PLANT,
-  FETCH_INIT_PLANT,
-  SELECT_PLANT,
-  FETCH_PLANT_ERROR,
+  FETCH_MEAL,
+  FETCH_INIT_MEAL,
+  SELECT_MEAL,
+  FETCH_MEAL_ERROR,
   FETCH_SUCCESS,
 } from './actionTypes';
 
@@ -16,10 +16,10 @@ const fetchInit = () => ({
   type: FETCH_INIT,
 });
 
-const fetchPlants = content => ({
-  type: FETCH_PLANTS,
+const fetchMeals = content => ({
+  type: FETCH_MEALS,
   payload: {
-    plants: content,
+    meals: content,
   },
 });
 
@@ -34,10 +34,10 @@ const fetchCategories = content => ({
   },
 });
 
-const fetchPlant = content => ({
-  type: FETCH_PLANT,
+const fetchMeal = content => ({
+  type: FETCH_MEAL,
   payload: {
-    plant: content,
+    meal: content,
   },
 });
 
@@ -46,30 +46,30 @@ const fetchSuccess = data => ({
   payload: data,
 });
 
-const selectPlant = slug => ({
-  type: SELECT_PLANT,
+const selectMeal = slug => ({
+  type: SELECT_MEAL,
   slug,
 });
 
-const fetchInitPlant = () => ({
-  type: FETCH_INIT_PLANT,
+const fetchInitMeal = () => ({
+  type: FETCH_INIT_MEAL,
 });
 
-const fetchPlantError = error => ({
-  type: FETCH_PLANT_ERROR,
+const fetchMealError = error => ({
+  type: FETCH_MEAL_ERROR,
   payload: error,
 });
 
-const fetchPlantBySlug = slug => dispatch => {
+const fetchMealBySlug = slug => dispatch => {
   const BASE_URL = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=';
   const url = `${BASE_URL}${slug}`;
-  dispatch(fetchInitPlant());
+  dispatch(fetchInitMeal());
   axios.get(url)
     .then(response => {
       dispatch(fetchSuccess(response.data.meals));
     })
     .catch(error => {
-      dispatch(fetchPlantError(error.message));
+      dispatch(fetchMealError(error.message));
     });
 };
 
@@ -82,11 +82,11 @@ const changeFilter = filter => ({
 
 export {
   fetchInit,
-  fetchPlants,
+  fetchMeals,
   fetchFail,
   fetchCategories,
   changeFilter,
-  fetchPlant,
-  fetchPlantBySlug,
-  selectPlant,
+  fetchMeal,
+  fetchMealBySlug,
+  selectMeal,
 };

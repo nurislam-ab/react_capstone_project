@@ -1,21 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import './PlantPreviewCard.scss';
+import './MealPreviewCard.scss';
 
-const PlantPreviewCard = ({ plant, clickHandler }) => {
+const MealPreviewCard = ({ meal, clickHandler }) => {
   const {
     idMeal,
     strMeal,
     strMealThumb,
-  } = plant;
+  } = meal;
 
-  const handleClick = plant => {
-    clickHandler(plant);
+  const handleClick = meal => {
+    clickHandler(meal);
   };
 
   return (
-    <div className="plant-excerpt" key={idMeal}>
+    <div className="meal-excerpt" key={idMeal}>
       <div className="image-wrapper">
         <img src={strMealThumb} alt={strMeal} className="image" />
       </div>
@@ -23,10 +23,10 @@ const PlantPreviewCard = ({ plant, clickHandler }) => {
         <h3 className="title">
           <Link
             to={{
-              pathname: `/plants/${idMeal}`,
-              state: { plant },
+              pathname: `/meals/${idMeal}`,
+              state: { meal },
             }}
-            onClick={() => handleClick(plant)}
+            onClick={() => handleClick(meal)}
             className="link"
           >
             {strMeal}
@@ -37,8 +37,8 @@ const PlantPreviewCard = ({ plant, clickHandler }) => {
   );
 };
 
-PlantPreviewCard.propTypes = {
-  plant: PropTypes.shape({
+MealPreviewCard.propTypes = {
+  meal: PropTypes.shape({
     idMeal: PropTypes.string.isRequired,
     strMeal: PropTypes.string.isRequired,
     strMealThumb: PropTypes.string,
@@ -46,4 +46,4 @@ PlantPreviewCard.propTypes = {
   clickHandler: PropTypes.func.isRequired,
 };
 
-export default PlantPreviewCard;
+export default MealPreviewCard;

@@ -1,16 +1,16 @@
 import {
   FETCH_INIT,
-  FETCH_PLANTS,
+  FETCH_MEALS,
   FETCH_FAIL,
 } from '../actions/actionTypes';
 
 const initialState = {
   loading: false,
   error: false,
-  plants: [],
+  meals: [],
 };
 
-const plantReducer = (state = initialState, action) => {
+const mealReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_INIT:
       return {
@@ -18,12 +18,12 @@ const plantReducer = (state = initialState, action) => {
         loading: true,
         error: false,
       };
-    case FETCH_PLANTS:
+    case FETCH_MEALS:
       return {
         ...state,
         loading: false,
         error: false,
-        plants: action.payload.plants,
+        meals: action.payload.meals,
       };
     case FETCH_FAIL:
       return {
@@ -36,4 +36,4 @@ const plantReducer = (state = initialState, action) => {
   }
 };
 
-export default plantReducer;
+export default mealReducer;
