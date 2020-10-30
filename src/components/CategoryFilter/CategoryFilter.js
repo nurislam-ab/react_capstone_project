@@ -1,9 +1,8 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import PropTypes from 'prop-types';
 import './CategoryFilter.scss';
 
-const CategoryFilter = ({ filter, onFilter, categories }) => {
+const CategoryFilter = ({ onFilter, categories }) => {
   const handleFilter = ({ target }) => {
     onFilter(target.value);
   };
@@ -44,13 +43,11 @@ const CategoryFilter = ({ filter, onFilter, categories }) => {
 
 CategoryFilter.propTypes = {
   categories: PropTypes.arrayOf(PropTypes.object),
-  filter: PropTypes.string,
   onFilter: PropTypes.func.isRequired,
 };
 
 CategoryFilter.defaultProps = {
   categories: [],
-  filter: 'All',
 };
 
 export default CategoryFilter;
