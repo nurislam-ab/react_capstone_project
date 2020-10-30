@@ -1,7 +1,7 @@
 /* eslint-disable no-await-in-loop */
 import axios from 'axios';
 
-const TOKEN = '_XSBdB7Gl5t4ZS9-Z_MCjLFKLifSi7Sa2HNIgPXw-LE';
+const TOKEN = '';
 const ALL_PLANTS = `https://trefle.io/api/v1/plants?token=${TOKEN}`;
 const ALL_FAMILIES = `https://trefle.io/api/v1/families?token=${TOKEN}`;
 const FAMILIES_BY_PAGE = `${ALL_FAMILIES}&page=`;
