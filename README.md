@@ -1,5 +1,5 @@
 # React Capstone Project
-The project is built using React and Redux and based on a catalogue of meals. This catalogue is a browsable list of meals that can be filtered and access to the details of one meal item. A sample design was developed in this capstone project.
+The project is built using React and Redux and based on a catalogue of meals. This catalogue is a browsable list of meals that can be filtered and access to the details of one meal item. A simple design was developed in this capstone project.
 
 
 ## Screeenshot
