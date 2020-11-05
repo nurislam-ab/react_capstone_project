@@ -5,7 +5,6 @@ import {
   FETCH_FAIL,
   CHANGE_FILTER,
   FETCH_CATEGORY,
-  FETCH_MEAL,
   FETCH_INIT_MEAL,
   SELECT_MEAL,
   FETCH_MEAL_ERROR,
@@ -34,21 +33,14 @@ const fetchCategories = content => ({
   },
 });
 
-const fetchMeal = content => ({
-  type: FETCH_MEAL,
-  payload: {
-    meal: content,
-  },
+const selectMeal = slug => ({
+  type: SELECT_MEAL,
+  slug,
 });
 
 const fetchSuccess = data => ({
   type: FETCH_SUCCESS,
   payload: data,
-});
-
-const selectMeal = slug => ({
-  type: SELECT_MEAL,
-  slug,
 });
 
 const fetchInitMeal = () => ({
@@ -86,7 +78,7 @@ export {
   fetchFail,
   fetchCategories,
   changeFilter,
-  fetchMeal,
   fetchMealBySlug,
   selectMeal,
+  fetchSuccess,
 };
